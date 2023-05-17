@@ -4,17 +4,14 @@ description: A new Flutter project.
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-
 version: 1.0.0+1
 
 environment:
   sdk: '>=2.19.6 <3.0.0'
 
-
 dependencies:
   flutter:
     sdk: flutter
-
 
   cupertino_icons: ^1.0.2
 
@@ -22,11 +19,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
   flutter_lints: ^2.0.0
 
-
 flutter:
+  fonts:
+    - family: Player
+      fonts:
+        - asset: fonts/player-condensed-bold.ttf
+    - family: Press2Start
+      fonts:
+        - asset: fonts/PressStart2P-Regular.ttf
 
   uses-material-design: true
 
