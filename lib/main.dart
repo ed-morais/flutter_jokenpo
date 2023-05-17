@@ -28,9 +28,9 @@ class MyApp extends StatelessWidget {
                 Column(
                   children: [
                     const Text('01'),
-                    Image.network(
-                      'https://art.pixilart.com/1a6c64727dac4a7.png',
-                      width: 100,
+                    Image.asset(
+                      'assets/images/skull_icon.png',
+                      width: 100.0,
                     ),
                     const Text('DERROTAS'),
                   ],
@@ -38,9 +38,9 @@ class MyApp extends StatelessWidget {
                 Column(
                   children: [
                     const Text('04'),
-                    Image.network(
-                      'https://art.pixilart.com/1a6c64727dac4a7.png',
-                      width: 100,
+                    Image.asset(
+                      'assets/images/trophy_icon.png',
+                      width: 100.0,
                     ),
                     const Text('DERROTAS'),
                   ],
@@ -48,9 +48,9 @@ class MyApp extends StatelessWidget {
                 Column(
                   children: [
                     const Text('03'),
-                    Image.network(
-                      'https://art.pixilart.com/1a6c64727dac4a7.png',
-                      width: 100,
+                    Image.asset(
+                      'assets/images/flag_icon.png',
+                      width: 100.0,
                     ),
                     const Text('DERROTAS'),
                   ],
@@ -58,17 +58,25 @@ class MyApp extends StatelessWidget {
               ],
             ),
             const Text('VOCÊ GANHOU'),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.network(
-                  'https://img.lovepik.com/free-png/20211216/lovepik-scissors-png-image_401704654_wh1200.png',
-                  width: 190,
-                ),
-                Image.network(
-                  'https://img.lovepik.com/free-png/20211216/lovepik-scissors-png-image_401704654_wh1200.png',
-                  width: 190,
-                ),
+                // Image.asset(
+                //   'assets/images/skull_icon.png',
+                //   width: 100.0,
+                // ),
+                // Image.asset(
+                //   'assets/images/trophy_icon.png',
+                //   width: 100.0,
+                // ),
+                // Image.asset(
+                //   'assets/images/flag_icon.png',
+                //   width: 100.0,
+                // ),
+                // Image.network(
+                //   'images/',
+                //   width: 190,
+                // ),
               ],
             )
           ],
