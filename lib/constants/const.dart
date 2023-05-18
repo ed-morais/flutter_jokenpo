@@ -13,4 +13,5 @@ const kScoreDescriptionTextStyle = TextStyle(
 const kResultTextStyle = TextStyle(
   fontSize: 40,
   fontFamily: 'Press2Start',
+  color: Colors.greenAccent,
 );
