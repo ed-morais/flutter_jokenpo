@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../constants/const.dart';
 
 class ScoreWidget extends StatelessWidget {
-  int score;
-  String imgPath;
-  String scoreDescription;
-  ScoreWidget({
+  final int score;
+  final String imgPath;
+  final String scoreDescription;
+  const ScoreWidget({
     super.key,
     required this.score,
     required this.imgPath,

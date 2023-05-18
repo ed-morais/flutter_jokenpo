@@ -19,15 +19,15 @@ class MyApp extends StatelessWidget {
       // ),
       title: 'JOKENPO',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('JOKENPÔ'),
-          centerTitle: true,
-        ),
+        // appBar: AppBar(
+        //   title: const Text('JOKENPÔ'),
+        //   centerTitle: true,
+        // ),
         body: Column(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ScoreWidget(
@@ -52,44 +52,62 @@ class MyApp extends StatelessWidget {
               style: kResultTextStyle,
               textAlign: TextAlign.center,
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Image.asset(
-                //   'assets/images/skull_icon.png',
-                //   width: 100.0,
-                // ),
+                Expanded(
+                  child: Image.asset(
+                    'assets/images/handRock_left.png',
+                    width: 200.0,
+                  ),
+                ),
+                Expanded(
+                  child: Image.asset(
+                    'assets/images/handScissors_rigt.png',
+                    width: 200.0,
+                  ),
+                ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: const EdgeInsetsDirectional.only(top: 50),
-                  child: Transform.rotate(
-                    angle: -0.2,
-                    child: Image.asset(
-                      'assets/images/card_rock.png',
-                      height: 200.0,
-                      // width: 100.0,
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsetsDirectional.only(top: 50),
+                      child: Transform.rotate(
+                        angle: -0.2,
+                        child: Image.asset(
+                          'assets/images/card_rock.png',
+                          height: 150.0,
+                          // width: 100.0,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                Image.asset(
-                  'assets/images/card_scissors.png',
-                  height: 200.0,
-                ),
-                Container(
-                  margin: const EdgeInsetsDirectional.only(top: 50),
-                  child: Transform.rotate(
-                    angle: 0.2,
+                  Expanded(
                     child: Image.asset(
-                      'assets/images/card_paper.png',
-                      height: 200.0,
+                      'assets/images/card_scissors.png',
+                      height: 150.0,
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsetsDirectional.only(top: 50),
+                      child: Transform.rotate(
+                        angle: 0.2,
+                        child: Image.asset(
+                          'assets/images/card_paper.png',
+                          height: 150.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
