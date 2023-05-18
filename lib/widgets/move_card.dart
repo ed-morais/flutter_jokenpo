@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+
+class MoveCard extends StatelessWidget {
+  final double topMargin;
+  final double angle;
+  final String imgPath;
+  final void Function() onTap;
+  const MoveCard({
+    super.key,
+    required this.topMargin,
+    required this.angle,
+    required this.imgPath,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsetsDirectional.only(top: topMargin),
+        child: Transform.rotate(
+          angle: angle,
+          child: Image.asset(
+            imgPath,
+            height: 150.0,
+            // width: 100.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
