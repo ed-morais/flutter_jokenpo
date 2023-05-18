@@ -159,13 +159,13 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     imgPath: 'assets/images/card_rock.png',
                   ),
                   MoveCard(
-                    onTap: () => playGame("papel"),
+                    onTap: () => playGame("tesoura"),
                     topMargin: 0.0,
                     angle: 0.0,
                     imgPath: 'assets/images/card_scissors.png',
                   ),
                   MoveCard(
-                    onTap: () => playGame("tesoura"),
+                    onTap: () => playGame("papel"),
                     topMargin: 20.0,
                     angle: 0.2,
                     imgPath: 'assets/images/card_paper.png',
