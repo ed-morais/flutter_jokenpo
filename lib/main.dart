@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
             const Text(
               'VOCÊ GANHOU',
               style: kResultTextStyle,
+              textAlign: TextAlign.center,
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
