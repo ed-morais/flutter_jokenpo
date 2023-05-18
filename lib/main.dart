@@ -57,21 +57,15 @@ class MyApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: Transform.rotate(
-                    angle: -0.5,
-                    child: Image.asset(
-                      'assets/images/handRock_left.png',
-                      width: 100.0,
-                    ),
+                  child: Image.asset(
+                    'assets/images/handRock_left.png',
+                    width: 200.0,
                   ),
                 ),
                 Expanded(
-                  child: Transform.rotate(
-                    angle: 0.5,
-                    child: Image.asset(
-                      'assets/images/handScissors_rigt.png',
-                      width: 100.0,
-                    ),
+                  child: Image.asset(
+                    'assets/images/handScissors_rigt.png',
+                    width: 200.0,
                   ),
                 ),
               ],
