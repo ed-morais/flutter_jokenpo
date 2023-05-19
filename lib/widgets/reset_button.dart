@@ -12,14 +12,13 @@ class ResetButton extends StatelessWidget {
           Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false),
       style: ElevatedButton.styleFrom(
         shape: const CircleBorder(),
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(15),
         backgroundColor: Colors.blue, // <-- Button color
-        foregroundColor: Colors.red, // <-- Splash color
       ),
       child: const Icon(
-        Icons.restart_alt_rounded,
+        Icons.refresh,
         color: Colors.white,
-        // size: 10.0,
+        size: 40.0,
       ),
     );
   }

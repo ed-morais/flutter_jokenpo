@@ -19,33 +19,46 @@ class JokenpoGame extends StatefulWidget {
 class _JokenpoGameState extends State<JokenpoGame> {
   String _imgComputer = "assets/images/handRock_left.png";
   String _imgMoveUser = "assets/images/handRock_right.png";
+  String cardPaper = kcardPaperPath;
+  String cardRock = kcardRockPath;
+  String cardScissors = kcardScissorsPath;
   int _userScore = 00;
   int _computerScore = 00;
   int _equalScore = 00;
-  // String _currentMoveUser = '';
+  String _currentMoveUser = '';
   String phrase = 'Escolha uma opção';
   List<String> moves = ["pedra", "papel", "tesoura"];
 
   void playGame(String userMove) {
-    // if (_currentMoveUser == userMove) {
-    //   debugPrint('REPETIU A JOGADA! NÃO PODE');
-    //   return;
-    // }
-    // _currentMoveUser = userMove;
+    if (_currentMoveUser == userMove) {
+      debugPrint('REPETIU A JOGADA! NÃO PODE');
+      return;
+    }
+    _currentMoveUser = userMove;
     switch (userMove) {
       case "pedra":
         setState(() {
           _imgMoveUser = "assets/images/handRock_right.png";
+          cardRock = kcardRockBlockedPath;
+          cardPaper = kcardPaperPath;
+          cardScissors = kcardScissorsPath;
         });
         break;
       case "papel":
         setState(() {
           _imgMoveUser = "assets/images/handPaper_right.png";
+          // kcardPaperPath = "assets/images/card_paper_blocked.png";
+          cardRock = kcardRockPath;
+          cardPaper = kcardPaperBlockedPath;
+          cardScissors = kcardScissorsPath;
         });
         break;
       case "tesoura":
         setState(() {
           _imgMoveUser = "assets/images/handScissors_right.png";
+          cardRock = kcardRockPath;
+          cardPaper = kcardPaperPath;
+          cardScissors = kcardScissorsBlockedPath;
         });
     }
     int number = Random().nextInt(3);
@@ -97,11 +110,12 @@ class _JokenpoGameState extends State<JokenpoGame> {
       //   title: const Text('JOKENPÔ'),
       //   centerTitle: true,
       // ),
+      backgroundColor: const Color.fromARGB(500, 143, 196, 202),
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -122,58 +136,47 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
             Text(
               phrase,
               style: kResultTextStyle,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Image.asset(
-                    _imgComputer,
-                    width: 150.0,
-                  ),
+                Image.asset(
+                  _imgComputer,
+                  width: 150.0,
                 ),
-                Expanded(
-                  child: Image.asset(
-                    _imgMoveUser,
-                    width: 150.0,
-                  ),
+                Image.asset(
+                  _imgMoveUser,
+                  width: 150.0,
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.all(35.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  MoveCard(
-                    onTap: () => playGame("pedra"),
-                    topMargin: 20.0,
-                    angle: -0.2,
-                    imgPath: 'assets/images/card_rock.png',
-                  ),
-                  MoveCard(
-                    onTap: () => playGame("tesoura"),
-                    topMargin: 0.0,
-                    angle: 0.0,
-                    imgPath: 'assets/images/card_scissors.png',
-                  ),
-                  MoveCard(
-                    onTap: () => playGame("papel"),
-                    topMargin: 20.0,
-                    angle: 0.2,
-                    imgPath: 'assets/images/card_paper.png',
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                MoveCard(
+                  onTap: () => playGame("pedra"),
+                  topMargin: 20.0,
+                  angle: -0.2,
+                  imgPath: cardRock,
+                ),
+                MoveCard(
+                  onTap: () => playGame("tesoura"),
+                  topMargin: 0.0,
+                  angle: 0.0,
+                  imgPath: cardScissors,
+                ),
+                MoveCard(
+                  onTap: () => playGame("papel"),
+                  topMargin: 20.0,
+                  angle: 0.2,
+                  imgPath: cardPaper,
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
             const ResetButton(),
             // const SizedBox(height: 16),
           ],

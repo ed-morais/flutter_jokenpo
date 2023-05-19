@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+String kcardPaperPath = "assets/images/card_paper.png";
+String kcardRockPath = "assets/images/card_rock.png";
+String kcardScissorsPath = "assets/images/card_scissors.png";
+
+String kcardPaperBlockedPath = "assets/images/card_paper_blocked.png";
+String kcardRockBlockedPath = "assets/images/card_rock_blocked.png";
+String kcardScissorsBlockedPath = "assets/images/card_scissors_blocked.png";
+
 const kScoreNumberTextStyle = TextStyle(
   fontSize: 25,
   fontFamily: 'Player',
@@ -13,5 +21,5 @@ const kScoreDescriptionTextStyle = TextStyle(
 const kResultTextStyle = TextStyle(
   fontSize: 30,
   fontFamily: 'Press2Start',
-  color: Colors.greenAccent,
+  color: Colors.green,
 );
