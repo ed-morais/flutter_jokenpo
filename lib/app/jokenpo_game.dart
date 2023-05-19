@@ -111,91 +111,106 @@ class _JokenpoGameState extends State<JokenpoGame> {
       //   title: const Text('JOKENPÔ'),
       //   centerTitle: true,
       // ),
-      backgroundColor: const Color.fromARGB(500, 143, 196, 202),
       body: SafeArea(
-        child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Stack(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ScoreWidget(
-                  score: _computerScore,
-                  imgPath: 'assets/images/skull_icon.png',
-                  scoreDescription: 'DERROTAS',
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/background.png"),
+                  fit: BoxFit.cover,
                 ),
-                ScoreWidget(
-                  score: _userScore,
-                  imgPath: 'assets/images/trophy_icon.png',
-                  scoreDescription: 'VITÓRIAS',
-                ),
-                ScoreWidget(
-                  score: _equalScore,
-                  imgPath: 'assets/images/flag_icon.png',
-                  scoreDescription: 'EMPATES',
-                ),
-              ],
-            ),
-            Text(
-              phrase,
-              style: kResultTextStyle,
-              textAlign: TextAlign.center,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: Image.asset(
-                    _imgComputer,
-                    // width: 150.0,
-                  ),
-                ),
-                Flexible(
-                  child: Image.asset(
-                    _imgMoveUser,
-                    // width: 150.0,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MoveCard(
-                    onTap: () {
-                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                      playGame("pedra");
-                    },
-                    topMargin: 20.0,
-                    angle: -0.2,
-                    imgPath: cardRock,
-                  ),
-                  MoveCard(
-                    onTap: () {
-                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                      playGame("tesoura");
-                    },
-                    topMargin: 0.0,
-                    angle: 0.0,
-                    imgPath: cardScissors,
-                  ),
-                  MoveCard(
-                    onTap: () {
-                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                      playGame("papel");
-                    },
-                    topMargin: 20.0,
-                    angle: 0.2,
-                    imgPath: cardPaper,
-                  ),
-                ],
               ),
             ),
-            const ResetButton(),
-            // const SizedBox(height: 16),
+            Column(
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ScoreWidget(
+                      score: _computerScore,
+                      imgPath: 'assets/images/skull_icon.png',
+                      scoreDescription: 'DERROTAS',
+                    ),
+                    ScoreWidget(
+                      score: _userScore,
+                      imgPath: 'assets/images/trophy_icon.png',
+                      scoreDescription: 'VITÓRIAS',
+                    ),
+                    ScoreWidget(
+                      score: _equalScore,
+                      imgPath: 'assets/images/flag_icon.png',
+                      scoreDescription: 'EMPATES',
+                    ),
+                  ],
+                ),
+                Text(
+                  phrase,
+                  style: kResultTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Image.asset(
+                        _imgComputer,
+                        // width: 150.0,
+                      ),
+                    ),
+                    Flexible(
+                      child: Image.asset(
+                        _imgMoveUser,
+                        // width: 150.0,
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MoveCard(
+                        onTap: () {
+                          AudioPlayer()
+                              .play(AssetSource('audio/cardsound.mp3'));
+                          playGame("pedra");
+                        },
+                        topMargin: 20.0,
+                        angle: -0.2,
+                        imgPath: cardRock,
+                      ),
+                      MoveCard(
+                        onTap: () {
+                          AudioPlayer()
+                              .play(AssetSource('audio/cardsound.mp3'));
+                          playGame("tesoura");
+                        },
+                        topMargin: 0.0,
+                        angle: 0.0,
+                        imgPath: cardScissors,
+                      ),
+                      MoveCard(
+                        onTap: () {
+                          AudioPlayer()
+                              .play(AssetSource('audio/cardsound.mp3'));
+                          playGame("papel");
+                        },
+                        topMargin: 20.0,
+                        angle: 0.2,
+                        imgPath: cardPaper,
+                      ),
+                    ],
+                  ),
+                ),
+                const ResetButton(),
+                // const SizedBox(height: 16),
+              ],
+            )
           ],
         ),
       ),
