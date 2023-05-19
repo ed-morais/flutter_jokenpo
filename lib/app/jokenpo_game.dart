@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 import '../constants/const.dart';
 import '../widgets/move_card.dart';
@@ -47,7 +48,6 @@ class _JokenpoGameState extends State<JokenpoGame> {
       case "papel":
         setState(() {
           _imgMoveUser = "assets/images/handPaper_right.png";
-          // kcardPaperPath = "assets/images/card_paper_blocked.png";
           cardRock = kcardRockPath;
           cardPaper = kcardPaperBlockedPath;
           cardScissors = kcardScissorsPath;
@@ -126,7 +126,10 @@ class _JokenpoGameState extends State<JokenpoGame> {
                   scoreDescription: 'DERROTAS',
                 ),
                 ScoreWidget(
+<<<<<<< HEAD
                   // score: _computerScore,
+=======
+>>>>>>> 24eab81dcafc876c5d02cb0e2419f20dd5622fb1
                   score: _userScore,
                   imgPath: 'assets/images/trophy_icon.png',
                   scoreDescription: 'VITÓRIAS',
@@ -160,6 +163,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 ),
               ],
             ),
+<<<<<<< HEAD
             Container(
               padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
               child: Row(
@@ -185,6 +189,39 @@ class _JokenpoGameState extends State<JokenpoGame> {
                   ),
                 ],
               ),
+=======
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                MoveCard(
+                  onTap: () {
+                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                    playGame("pedra");
+                  },
+                  topMargin: 20.0,
+                  angle: -0.2,
+                  imgPath: cardRock,
+                ),
+                MoveCard(
+                  onTap: () {
+                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                    playGame("tesoura");
+                  },
+                  topMargin: 0.0,
+                  angle: 0.0,
+                  imgPath: cardScissors,
+                ),
+                MoveCard(
+                  onTap: () {
+                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                    playGame("papel");
+                  },
+                  topMargin: 20.0,
+                  angle: 0.2,
+                  imgPath: cardPaper,
+                ),
+              ],
+>>>>>>> 24eab81dcafc876c5d02cb0e2419f20dd5622fb1
             ),
             const ResetButton(),
             // const SizedBox(height: 16),
