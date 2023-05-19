@@ -159,37 +159,40 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MoveCard(
-                  onTap: () {
-                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                    playGame("pedra");
-                  },
-                  topMargin: 20.0,
-                  angle: -0.2,
-                  imgPath: cardRock,
-                ),
-                MoveCard(
-                  onTap: () {
-                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                    playGame("tesoura");
-                  },
-                  topMargin: 0.0,
-                  angle: 0.0,
-                  imgPath: cardScissors,
-                ),
-                MoveCard(
-                  onTap: () {
-                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                    playGame("papel");
-                  },
-                  topMargin: 20.0,
-                  angle: 0.2,
-                  imgPath: cardPaper,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MoveCard(
+                    onTap: () {
+                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                      playGame("pedra");
+                    },
+                    topMargin: 20.0,
+                    angle: -0.2,
+                    imgPath: cardRock,
+                  ),
+                  MoveCard(
+                    onTap: () {
+                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                      playGame("tesoura");
+                    },
+                    topMargin: 0.0,
+                    angle: 0.0,
+                    imgPath: cardScissors,
+                  ),
+                  MoveCard(
+                    onTap: () {
+                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                      playGame("papel");
+                    },
+                    topMargin: 20.0,
+                    angle: 0.2,
+                    imgPath: cardPaper,
+                  ),
+                ],
+              ),
             ),
             const ResetButton(),
             // const SizedBox(height: 16),
