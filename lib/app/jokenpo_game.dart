@@ -62,6 +62,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
         });
     }
     int number = Random().nextInt(3);
+
     var computerMove = moves[number];
 
     switch (computerMove) {
@@ -120,12 +121,13 @@ class _JokenpoGameState extends State<JokenpoGame> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ScoreWidget(
-                  score: _userScore,
+                  score: _computerScore,
                   imgPath: 'assets/images/skull_icon.png',
                   scoreDescription: 'DERROTAS',
                 ),
                 ScoreWidget(
-                  score: _computerScore,
+                  // score: _computerScore,
+                  score: _userScore,
                   imgPath: 'assets/images/trophy_icon.png',
                   scoreDescription: 'VITÓRIAS',
                 ),
@@ -144,38 +146,45 @@ class _JokenpoGameState extends State<JokenpoGame> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(
-                  _imgComputer,
-                  width: 150.0,
+                Flexible(
+                  child: Image.asset(
+                    _imgComputer,
+                    // width: 150.0,
+                  ),
                 ),
-                Image.asset(
-                  _imgMoveUser,
-                  width: 150.0,
+                Flexible(
+                  child: Image.asset(
+                    _imgMoveUser,
+                    // width: 150.0,
+                  ),
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MoveCard(
-                  onTap: () => playGame("pedra"),
-                  topMargin: 20.0,
-                  angle: -0.2,
-                  imgPath: cardRock,
-                ),
-                MoveCard(
-                  onTap: () => playGame("tesoura"),
-                  topMargin: 0.0,
-                  angle: 0.0,
-                  imgPath: cardScissors,
-                ),
-                MoveCard(
-                  onTap: () => playGame("papel"),
-                  topMargin: 20.0,
-                  angle: 0.2,
-                  imgPath: cardPaper,
-                ),
-              ],
+            Container(
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MoveCard(
+                    onTap: () => playGame("pedra"),
+                    topMargin: 20.0,
+                    angle: -0.2,
+                    imgPath: cardRock,
+                  ),
+                  MoveCard(
+                    onTap: () => playGame("tesoura"),
+                    topMargin: 0.0,
+                    angle: 0.0,
+                    imgPath: cardScissors,
+                  ),
+                  MoveCard(
+                    onTap: () => playGame("papel"),
+                    topMargin: 20.0,
+                    angle: 0.2,
+                    imgPath: cardPaper,
+                  ),
+                ],
+              ),
             ),
             const ResetButton(),
             // const SizedBox(height: 16),

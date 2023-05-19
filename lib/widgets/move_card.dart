@@ -15,16 +15,18 @@ class MoveCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        margin: EdgeInsetsDirectional.only(top: topMargin),
-        child: Transform.rotate(
-          angle: angle,
-          child: Image.asset(
-            imgPath,
-            height: 150.0,
-            // width: 100.0,
+    return Flexible(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          margin: EdgeInsetsDirectional.only(top: topMargin),
+          child: Transform.rotate(
+            angle: angle,
+            child: Image.asset(
+              imgPath,
+              height: 250.0,
+              // width: 100.0,
+            ),
           ),
         ),
       ),
