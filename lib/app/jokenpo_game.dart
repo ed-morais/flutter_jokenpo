@@ -126,10 +126,6 @@ class _JokenpoGameState extends State<JokenpoGame> {
                   scoreDescription: 'DERROTAS',
                 ),
                 ScoreWidget(
-<<<<<<< HEAD
-                  // score: _computerScore,
-=======
->>>>>>> 24eab81dcafc876c5d02cb0e2419f20dd5622fb1
                   score: _userScore,
                   imgPath: 'assets/images/trophy_icon.png',
                   scoreDescription: 'VITÓRIAS',
@@ -163,65 +159,40 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 ),
               ],
             ),
-<<<<<<< HEAD
-            Container(
-              padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
+            Padding(
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   MoveCard(
-                    onTap: () => playGame("pedra"),
+                    onTap: () {
+                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                      playGame("pedra");
+                    },
                     topMargin: 20.0,
                     angle: -0.2,
                     imgPath: cardRock,
                   ),
                   MoveCard(
-                    onTap: () => playGame("tesoura"),
+                    onTap: () {
+                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                      playGame("tesoura");
+                    },
                     topMargin: 0.0,
                     angle: 0.0,
                     imgPath: cardScissors,
                   ),
                   MoveCard(
-                    onTap: () => playGame("papel"),
+                    onTap: () {
+                      AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
+                      playGame("papel");
+                    },
                     topMargin: 20.0,
                     angle: 0.2,
                     imgPath: cardPaper,
                   ),
                 ],
               ),
-=======
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MoveCard(
-                  onTap: () {
-                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                    playGame("pedra");
-                  },
-                  topMargin: 20.0,
-                  angle: -0.2,
-                  imgPath: cardRock,
-                ),
-                MoveCard(
-                  onTap: () {
-                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                    playGame("tesoura");
-                  },
-                  topMargin: 0.0,
-                  angle: 0.0,
-                  imgPath: cardScissors,
-                ),
-                MoveCard(
-                  onTap: () {
-                    AudioPlayer().play(AssetSource('audio/cardsound.mp3'));
-                    playGame("papel");
-                  },
-                  topMargin: 20.0,
-                  angle: 0.2,
-                  imgPath: cardPaper,
-                ),
-              ],
->>>>>>> 24eab81dcafc876c5d02cb0e2419f20dd5622fb1
             ),
             const ResetButton(),
             // const SizedBox(height: 16),
