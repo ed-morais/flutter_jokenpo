@@ -111,18 +111,18 @@ class _JokenpoGameState extends State<JokenpoGame> {
       //   title: const Text('JOKENPÔ'),
       //   centerTitle: true,
       // ),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/background.png"),
-                  fit: BoxFit.cover,
-                ),
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/background.png"),
+                fit: BoxFit.cover,
               ),
             ),
-            Column(
+          ),
+          SafeArea(
+            child: Column(
               // crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -210,9 +210,9 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 const ResetButton(),
                 // const SizedBox(height: 16),
               ],
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
