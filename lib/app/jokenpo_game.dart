@@ -30,8 +30,13 @@ class _JokenpoGameState extends State<JokenpoGame> {
   String phrase = 'Escolha uma opção';
   List<String> moves = ["pedra", "papel", "tesoura"];
 
+  Widget repeatedMove() {
+    return const Text('REPETIU A JOGADA! NÃO PODE');
+  }
+
   void playGame(String userMove) {
     if (_currentMoveUser == userMove) {
+      repeatedMove();
       debugPrint('REPETIU A JOGADA! NÃO PODE');
       return;
     }
@@ -111,16 +116,17 @@ class _JokenpoGameState extends State<JokenpoGame> {
       //   title: const Text('JOKENPÔ'),
       //   centerTitle: true,
       // ),
+      backgroundColor: const Color(0xffF7EBFF),
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          // Container(
+          //   decoration: const BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage("assets/images/background.png"),
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
           SafeArea(
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -148,7 +154,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 ),
                 Text(
                   phrase,
-                  style: kResultTextStyle,
+                  style: kPlayerLarge,
                   textAlign: TextAlign.center,
                 ),
                 Row(

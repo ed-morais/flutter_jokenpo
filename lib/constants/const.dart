@@ -18,6 +18,11 @@ const kScoreDescriptionTextStyle = TextStyle(
   fontFamily: 'Player',
 );
 
+const kPlayerLarge = TextStyle(
+  fontSize: 30,
+  fontFamily: 'Player',
+);
+
 const kResultTextStyle = TextStyle(
   fontSize: 30,
   fontFamily: 'Press2Start',
