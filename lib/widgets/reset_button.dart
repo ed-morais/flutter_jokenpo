@@ -17,7 +17,7 @@ class ResetButton extends StatelessWidget {
       onPressed: () =>
           Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false),
       child: Text(
-        'RECARREGAR',
+        'REINICIAR',
         style: kPlayerLarge.copyWith(
           color: Colors.white,
         ),

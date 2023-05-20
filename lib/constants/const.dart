@@ -18,7 +18,14 @@ const kScoreDescriptionTextStyle = TextStyle(
   fontFamily: 'Player',
 );
 
-const kPlayerLarge = TextStyle(
+TextStyle kPlayerLarge = const TextStyle(
+  color: Color(0xff000000),
+  fontSize: 30,
+  fontFamily: 'Player',
+);
+
+const kPlayerLargeGreen = TextStyle(
+  color: Color(0xff679480),
   fontSize: 30,
   fontFamily: 'Player',
 );
