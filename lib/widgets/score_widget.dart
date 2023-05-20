@@ -16,14 +16,21 @@ class ScoreWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
           score.toString(),
           style: kScoreNumberTextStyle,
         ),
+        const SizedBox(
+          height: 10,
+        ),
         Image.asset(
           imgPath,
-          width: 70.0,
+          width: 40.0,
+        ),
+        const SizedBox(
+          height: 10,
         ),
         Text(
           scoreDescription,
