@@ -118,17 +118,17 @@ class _JokenpoGameState extends State<JokenpoGame> {
       //   title: const Text('JOKENPÔ'),
       //   centerTitle: true,
       // ),
-      backgroundColor: const Color(0xffF7F7F7),
+      // backgroundColor: const Color(0xffF7F7F7),
       body: Stack(
         children: [
-          // Container(
-          //   decoration: const BoxDecoration(
-          //     image: DecorationImage(
-          //       image: AssetImage("assets/images/background.png"),
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-          // ),
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/background.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           SafeArea(
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.stretch,
