@@ -17,10 +17,16 @@ class JokenpoGame extends StatefulWidget {
 }
 
 class _JokenpoGameState extends State<JokenpoGame> {
-  final Jokenpo game = Jokenpo();
+  Jokenpo game = Jokenpo();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        toolbarHeight: 28,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+      ),
       body: Stack(
         children: [
           Container(
@@ -55,10 +61,16 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 10,
+                ),
                 Text(
                   game.phrase,
                   style: kPlayerLarge,
                   textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,8 +163,11 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 ),
                 Button(
                   text: 'REINICIAR',
-                  onPressed: () => Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/', (route) => false),
+                  onPressed: () {
+                    setState(() {
+                      game = Jokenpo();
+                    });
+                  },
                 ),
               ],
             ),
