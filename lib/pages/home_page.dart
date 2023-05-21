@@ -19,27 +19,6 @@ class HomePage extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) {
-              List<Widget> ruleWidgets = [];
-
-              Rules.rules.forEach((key, value) {
-                ruleWidgets.add(
-                  ListTile(
-                    title: Text(
-                      'Regra $key:',
-                      style: kScoreDescriptionTextStyle.copyWith(
-                          color: Colors.black),
-                    ),
-                    subtitle: Text(
-                      value,
-                      style: kScoreDescriptionTextStyle.copyWith(
-                        fontSize: 12,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                );
-              });
-
               return AlertDialog(
                 title: Text(
                   'REGRAS',
@@ -49,9 +28,26 @@ class HomePage extends StatelessWidget {
                     fontSize: 40,
                   ),
                 ),
-                content: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: ruleWidgets,
+                content: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: Rules.rules.entries
+                        .map((entry) => ListTile(
+                              title: Text(
+                                'Regra ${entry.key}:',
+                                style: kScoreDescriptionTextStyle.copyWith(
+                                    color: Colors.black),
+                              ),
+                              subtitle: Text(
+                                entry.value,
+                                style: kScoreDescriptionTextStyle.copyWith(
+                                  fontSize: 12,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                  ),
                 ),
                 actions: <Widget>[
                   TextButton(
@@ -103,7 +99,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
