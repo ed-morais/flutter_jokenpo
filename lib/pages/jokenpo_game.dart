@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 import '../config/const.dart';
+import '../config/jokenpo.dart';
 import '../widgets/button.dart';
 import '../widgets/move_card.dart';
 import '../widgets/score_widget.dart';
@@ -18,104 +17,7 @@ class JokenpoGame extends StatefulWidget {
 }
 
 class _JokenpoGameState extends State<JokenpoGame> {
-  String _imgMoveUser = "assets/images/handRock_left.png";
-  String _imgComputer = "assets/images/handRock_right.png";
-
-  String cardPaper = kcardPaperPath;
-  String cardRock = kcardRockPath;
-  String cardScissors = kcardScissorsPath;
-
-  int _userScore = 00;
-  int _computerScore = 00;
-  int _equalScore = 00;
-  String _currentMoveUser = '';
-  String phrase = 'Escolha uma opção';
-  List<String> moves = ["pedra", "papel", "tesoura"];
-
-  void repeatedMove() {
-    setState(() {
-      phrase = 'NÃO PODE REPETIR A JOGADA!';
-    });
-  }
-
-  void playGame(String userMove) {
-    if (_currentMoveUser == userMove) {
-      repeatedMove();
-      debugPrint('NÃO PODE REPETIR A JOGADA!');
-      return;
-    }
-    _currentMoveUser = userMove;
-    switch (userMove) {
-      case "pedra":
-        setState(() {
-          _imgMoveUser = "assets/images/handRock_left.png";
-          cardRock = kcardRockBlockedPath;
-          cardPaper = kcardPaperPath;
-          cardScissors = kcardScissorsPath;
-        });
-        break;
-      case "papel":
-        setState(() {
-          _imgMoveUser = "assets/images/handPaper_left.png";
-          cardRock = kcardRockPath;
-          cardPaper = kcardPaperBlockedPath;
-          cardScissors = kcardScissorsPath;
-        });
-        break;
-      case "tesoura":
-        setState(() {
-          _imgMoveUser = "assets/images/handScissors_left.png";
-          cardRock = kcardRockPath;
-          cardPaper = kcardPaperPath;
-          cardScissors = kcardScissorsBlockedPath;
-        });
-    }
-    int number = Random().nextInt(3);
-    // while (number == 2) {
-    //   number = Random().nextInt(3);
-    // }
-
-    var computerMove = moves[number];
-
-    switch (computerMove) {
-      case "pedra":
-        setState(() {
-          _imgComputer = "assets/images/handRock_right.png";
-        });
-        break;
-      case "papel":
-        setState(() {
-          _imgComputer = "assets/images/handPaper_right.png";
-        });
-        break;
-      case "tesoura":
-        setState(() {
-          _imgComputer = "assets/images/handScissors_right.png";
-        });
-    }
-
-    if ((userMove == "pedra" && computerMove == "tesoura") ||
-        (userMove == "tesoura" && computerMove == "papel") ||
-        (userMove == "papel" && computerMove == "pedra")) {
-      setState(() {
-        phrase = "VOCÊ GANHOU";
-        _userScore += 1;
-      });
-    } else if ((userMove == "tesoura" && computerMove == "pedra") ||
-        (userMove == "papel" && computerMove == "tesoura") ||
-        (userMove == "pedra" && computerMove == "papel")) {
-      setState(() {
-        phrase = "VOCÊ PERDEU";
-        _computerScore += 1;
-      });
-    } else {
-      setState(() {
-        phrase = "EMPATE";
-        _equalScore += 1;
-      });
-    }
-  }
-
+  final Jokenpo game = Jokenpo();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,24 +39,24 @@ class _JokenpoGameState extends State<JokenpoGame> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ScoreWidget(
-                      score: _computerScore,
+                      score: game.computerScore,
                       imgPath: 'assets/images/skull_icon.png',
                       scoreDescription: 'DERROTAS',
                     ),
                     ScoreWidget(
-                      score: _userScore,
+                      score: game.userScore,
                       imgPath: 'assets/images/trophy_icon.png',
                       scoreDescription: 'VITÓRIAS',
                     ),
                     ScoreWidget(
-                      score: _equalScore,
+                      score: game.equalScore,
                       imgPath: 'assets/images/flag_icon.png',
                       scoreDescription: 'EMPATES',
                     ),
                   ],
                 ),
                 Text(
-                  phrase,
+                  game.phrase,
                   style: kPlayerLarge,
                   textAlign: TextAlign.center,
                 ),
@@ -163,13 +65,13 @@ class _JokenpoGameState extends State<JokenpoGame> {
                   children: [
                     Flexible(
                       child: Image.asset(
-                        _imgMoveUser,
+                        game.imgMoveUser,
                         // width: 150.0,
                       ),
                     ),
                     Flexible(
                       child: Image.asset(
-                        _imgComputer,
+                        game.imgComputer,
                         // width: 150.0,
                       ),
                     ),
@@ -183,18 +85,21 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     children: [
                       Text(
                         'VOCÊ',
-                        style:
-                            kScoreDescriptionTextStyle.copyWith(fontSize: 25),
+                        style: kScoreDescriptionTextStyle.copyWith(
+                          fontSize: 25,
+                        ),
                       ),
                       Text(
                         'X',
-                        style:
-                            kScoreDescriptionTextStyle.copyWith(fontSize: 25),
+                        style: kScoreDescriptionTextStyle.copyWith(
+                          fontSize: 25,
+                        ),
                       ),
                       Text(
                         'ROBÔ',
-                        style:
-                            kScoreDescriptionTextStyle.copyWith(fontSize: 25),
+                        style: kScoreDescriptionTextStyle.copyWith(
+                          fontSize: 25,
+                        ),
                       ),
                     ],
                   ),
@@ -207,33 +112,39 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     children: [
                       MoveCard(
                         onTap: () {
-                          AudioPlayer()
-                              .play(AssetSource('audio/cardsound.mp3'));
-                          playGame("pedra");
+                          setState(() {
+                            AudioPlayer()
+                                .play(AssetSource('audio/cardsound.mp3'));
+                            game.playGame("pedra");
+                          });
                         },
                         topMargin: 20.0,
                         angle: -0.2,
-                        imgPath: cardRock,
+                        imgPath: game.cardRock,
                       ),
                       MoveCard(
                         onTap: () {
-                          AudioPlayer()
-                              .play(AssetSource('audio/cardsound.mp3'));
-                          playGame("tesoura");
+                          setState(() {
+                            AudioPlayer()
+                                .play(AssetSource('audio/cardsound.mp3'));
+                            game.playGame("tesoura");
+                          });
                         },
                         topMargin: 0.0,
                         angle: 0.0,
-                        imgPath: cardScissors,
+                        imgPath: game.cardScissors,
                       ),
                       MoveCard(
                         onTap: () {
-                          AudioPlayer()
-                              .play(AssetSource('audio/cardsound.mp3'));
-                          playGame("papel");
+                          setState(() {
+                            AudioPlayer()
+                                .play(AssetSource('audio/cardsound.mp3'));
+                            game.playGame("papel");
+                          });
                         },
                         topMargin: 20.0,
                         angle: 0.2,
-                        imgPath: cardPaper,
+                        imgPath: game.cardPaper,
                       ),
                     ],
                   ),
