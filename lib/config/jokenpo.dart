@@ -3,8 +3,8 @@ import 'dart:math';
 import './const.dart';
 
 class Jokenpo {
-  String imgMoveUser = "assets/images/handRock_left.png";
-  String imgComputer = "assets/images/handRock_right.png";
+  String imgMoveUser = "assets/images/inicialHand_left.png";
+  String imgComputer = "assets/images/inicialHand_right.png";
 
   String cardPaper = kcardPaperPath;
   String cardRock = kcardRockPath;
