@@ -18,8 +18,8 @@ class JokenpoGame extends StatefulWidget {
 }
 
 class _JokenpoGameState extends State<JokenpoGame> {
-  String _imgComputer = "assets/images/handRock_left.png";
-  String _imgMoveUser = "assets/images/handRock_right.png";
+  String _imgMoveUser = "assets/images/handRock_left.png";
+  String _imgComputer = "assets/images/handRock_right.png";
   String cardPaper = kcardPaperPath;
   String cardRock = kcardRockPath;
   String cardScissors = kcardScissorsPath;
@@ -46,7 +46,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
     switch (userMove) {
       case "pedra":
         setState(() {
-          _imgMoveUser = "assets/images/handRock_right.png";
+          _imgMoveUser = "assets/images/handRock_left.png";
           cardRock = kcardRockBlockedPath;
           cardPaper = kcardPaperPath;
           cardScissors = kcardScissorsPath;
@@ -54,7 +54,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
         break;
       case "papel":
         setState(() {
-          _imgMoveUser = "assets/images/handPaper_right.png";
+          _imgMoveUser = "assets/images/handPaper_left.png";
           cardRock = kcardRockPath;
           cardPaper = kcardPaperBlockedPath;
           cardScissors = kcardScissorsPath;
@@ -62,30 +62,33 @@ class _JokenpoGameState extends State<JokenpoGame> {
         break;
       case "tesoura":
         setState(() {
-          _imgMoveUser = "assets/images/handScissors_right.png";
+          _imgMoveUser = "assets/images/handScissors_left.png";
           cardRock = kcardRockPath;
           cardPaper = kcardPaperPath;
           cardScissors = kcardScissorsBlockedPath;
         });
     }
     int number = Random().nextInt(3);
+    // while (number == 2) {
+    //   number = Random().nextInt(3);
+    // }
 
     var computerMove = moves[number];
 
     switch (computerMove) {
       case "pedra":
         setState(() {
-          _imgComputer = "assets/images/handRock_left.png";
+          _imgComputer = "assets/images/handRock_right.png";
         });
         break;
       case "papel":
         setState(() {
-          _imgComputer = "assets/images/handPaper_left.png";
+          _imgComputer = "assets/images/handPaper_right.png";
         });
         break;
       case "tesoura":
         setState(() {
-          _imgComputer = "assets/images/handScissors_left.png";
+          _imgComputer = "assets/images/handScissors_right.png";
         });
     }
 
@@ -116,6 +119,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text('JOKENPÔ'),
+      //   backgroundColor: const Color.fromARGB(0, 114, 29, 67),
       //   centerTitle: true,
       // ),
       // backgroundColor: const Color(0xffF7F7F7),
@@ -132,7 +136,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
           SafeArea(
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -155,28 +159,53 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                // const SizedBox(height: 20),
                 Text(
                   phrase,
                   style: kPlayerLarge,
                   textAlign: TextAlign.center,
                 ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Flexible(
-                      child: Image.asset(
-                        _imgComputer,
-                        // width: 150.0,
-                      ),
-                    ),
                     Flexible(
                       child: Image.asset(
                         _imgMoveUser,
                         // width: 150.0,
                       ),
                     ),
+                    Flexible(
+                      child: Image.asset(
+                        _imgComputer,
+                        // width: 150.0,
+                      ),
+                    ),
                   ],
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.symmetric(horizontal: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'VOCÊ',
+                        style:
+                            kScoreDescriptionTextStyle.copyWith(fontSize: 25),
+                      ),
+                      Text(
+                        'X',
+                        style:
+                            kScoreDescriptionTextStyle.copyWith(fontSize: 25),
+                      ),
+                      Text(
+                        'ROBÔ',
+                        style:
+                            kScoreDescriptionTextStyle.copyWith(fontSize: 25),
+                      ),
+                    ],
+                  ),
                 ),
                 Padding(
                   padding:

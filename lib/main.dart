@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'app/jokenpo_game.dart';
+import 'pages/home_page.dart';
+// import 'pages/jokenpo_game.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       //   useMaterial3: true,
       // ),
       title: 'JOKENPO',
-      home: JokenpoGame(),
+      home: HomePage(),
     );
   }
 }

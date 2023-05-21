@@ -18,24 +18,33 @@ class ScoreWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Text(
-          score.toString(),
-          style: kScoreNumberTextStyle,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Image.asset(
-          imgPath,
-          width: 40.0,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          scoreDescription,
-          style: kScoreDescriptionTextStyle,
-          textAlign: TextAlign.center,
+        Row(
+          children: [
+            Image.asset(
+              imgPath,
+              width: 40.0,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  score.toString(),
+                  style: kScoreNumberTextStyle,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  scoreDescription,
+                  style: kScoreDescriptionTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            )
+          ],
         ),
       ],
     );
