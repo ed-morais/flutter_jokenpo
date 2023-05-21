@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/const.dart';
+import '../config/const.dart';
 
 class ResetButton extends StatelessWidget {
   const ResetButton({
@@ -23,18 +23,5 @@ class ResetButton extends StatelessWidget {
         ),
       ),
     );
-    // return ElevatedButton(
-    //   onPressed: () =>
-    //       Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false),
-    //   style: ElevatedButton.styleFrom(
-    //     padding: const EdgeInsets.all(15),
-    //     backgroundColor: Colors.blue, // <-- Button color
-    //   ),
-    //   child: const Icon(
-    //     Icons.refresh,
-    //     color: Colors.white,
-    //     size: 40.0,
-    //   ),
-    // );
   }
 }

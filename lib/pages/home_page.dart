@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants/const.dart';
-import '../constants/rules.dart';
+import '../config/const.dart';
+import '../config/rules.dart';
 import '../widgets/button.dart';
 import 'jokenpo_game.dart';
 
@@ -44,8 +44,10 @@ class HomePage extends StatelessWidget {
                 title: Text(
                   'REGRAS',
                   textAlign: TextAlign.center,
-                  style:
-                      kScoreDescriptionTextStyle.copyWith(color: Colors.black),
+                  style: kScoreDescriptionTextStyle.copyWith(
+                    color: Colors.black,
+                    fontSize: 40,
+                  ),
                 ),
                 content: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,8 +84,6 @@ class HomePage extends StatelessWidget {
                 Text(
                   'JOKENPÔ',
                   style: kPlayerLarge.copyWith(
-                    // #e94f75
-                    // #679480
                     fontSize: 70,
                   ),
                 ),

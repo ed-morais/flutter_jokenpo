@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-import '../constants/const.dart';
+import '../config/const.dart';
+import '../widgets/button.dart';
 import '../widgets/move_card.dart';
-import '../widgets/reset_button.dart';
 import '../widgets/score_widget.dart';
 
 class JokenpoGame extends StatefulWidget {
@@ -20,9 +20,11 @@ class JokenpoGame extends StatefulWidget {
 class _JokenpoGameState extends State<JokenpoGame> {
   String _imgMoveUser = "assets/images/handRock_left.png";
   String _imgComputer = "assets/images/handRock_right.png";
+
   String cardPaper = kcardPaperPath;
   String cardRock = kcardRockPath;
   String cardScissors = kcardScissorsPath;
+
   int _userScore = 00;
   int _computerScore = 00;
   int _equalScore = 00;
@@ -117,12 +119,6 @@ class _JokenpoGameState extends State<JokenpoGame> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('JOKENPÔ'),
-      //   backgroundColor: const Color.fromARGB(0, 114, 29, 67),
-      //   centerTitle: true,
-      // ),
-      // backgroundColor: const Color(0xffF7F7F7),
       body: Stack(
         children: [
           Container(
@@ -135,11 +131,9 @@ class _JokenpoGameState extends State<JokenpoGame> {
           ),
           SafeArea(
             child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ScoreWidget(
@@ -159,13 +153,11 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     ),
                   ],
                 ),
-                // const SizedBox(height: 20),
                 Text(
                   phrase,
                   style: kPlayerLarge,
                   textAlign: TextAlign.center,
                 ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -246,8 +238,11 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     ],
                   ),
                 ),
-                const ResetButton(),
-                // const SizedBox(height: 16),
+                Button(
+                  text: 'REINICIAR',
+                  onPressed: () => Navigator.of(context)
+                      .pushNamedAndRemoveUntil('/', (route) => false),
+                ),
               ],
             ),
           )

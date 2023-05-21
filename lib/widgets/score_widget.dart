@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/const.dart';
+import '../config/const.dart';
 
 class ScoreWidget extends StatelessWidget {
   final int score;
@@ -18,33 +18,35 @@ class ScoreWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Row(
+        Column(
           children: [
-            Image.asset(
-              imgPath,
-              width: 40.0,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  score.toString(),
-                  style: kScoreNumberTextStyle,
+                Image.asset(
+                  imgPath,
+                  width: 40.0,
                 ),
                 const SizedBox(
-                  height: 5,
+                  width: 5,
                 ),
                 Text(
-                  scoreDescription,
-                  style: kScoreDescriptionTextStyle,
-                  textAlign: TextAlign.center,
+                  score.toString(),
+                  style: kScoreNumberTextStyle.copyWith(
+                    fontSize: 35,
+                  ),
                 ),
               ],
             )
           ],
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          scoreDescription,
+          style: kScoreDescriptionTextStyle,
+          textAlign: TextAlign.center,
         ),
       ],
     );
