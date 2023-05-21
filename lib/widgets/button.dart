@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/const.dart';
+import '../config/const.dart';
 
 class Button extends StatelessWidget {
   final String text;
@@ -13,32 +13,18 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsetsDirectional.symmetric(horizontal: 80),
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xff721d43),
-            padding: const EdgeInsets.all(20),
-          ),
-          onPressed: onPressed,
-          // onPressed: () =>
-          //     Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                text,
-                style: kPlayerLarge.copyWith(
-                  color: Colors.white,
-                ),
-              ),
-              // const Icon(
-              //   Icons.play_arrow,
-              //   color: Colors.white,
-              //   size: 40.0,
-              // ),
-            ],
-          )),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xff721d43),
+        padding: const EdgeInsets.all(20),
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: kPlayerLarge.copyWith(
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
