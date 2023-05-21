@@ -31,15 +31,3 @@ const kPlayerLargeGreen = TextStyle(
   fontSize: 30,
   fontFamily: 'Player',
 );
-
-const kResultTextStyle = TextStyle(
-  fontSize: 30,
-  fontFamily: 'Press2Start',
-  color: Colors.green,
-);
-
-const kPress2StartRegular = TextStyle(
-  fontSize: 12,
-  fontFamily: 'Press2Start',
-  color: Color.fromARGB(255, 0, 0, 0),
-);
