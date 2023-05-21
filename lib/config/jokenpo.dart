@@ -13,7 +13,10 @@ class Jokenpo {
   int userScore = 00;
   int computerScore = 00;
   int equalScore = 00;
+
   String _currentMoveUser = '';
+  int? _currentComputerMove;
+
   String phrase = 'Escolha uma opção';
   List<String> moves = ["pedra", "papel", "tesoura"];
 
@@ -26,7 +29,21 @@ class Jokenpo {
       repeatedMove();
       return;
     }
+    gesturePlayerImage(userMove);
     _currentMoveUser = userMove;
+
+    int number = Random().nextInt(3);
+    while (number == _currentComputerMove) {
+      number = Random().nextInt(3);
+    }
+    _currentComputerMove = number;
+    var computerMove = moves[number];
+
+    gestureComputerImage(computerMove);
+    checkWinner(userMove, computerMove);
+  }
+
+  void gesturePlayerImage(userMove) {
     switch (userMove) {
       case "pedra":
         imgMoveUser = "assets/images/handRock_left.png";
@@ -35,7 +52,6 @@ class Jokenpo {
         cardScissors = kcardScissorsPath;
         break;
       case "papel":
-        // setState(() {
         imgMoveUser = "assets/images/handPaper_left.png";
         cardRock = kcardRockPath;
         cardPaper = kcardPaperBlockedPath;
@@ -47,13 +63,9 @@ class Jokenpo {
         cardPaper = kcardPaperPath;
         cardScissors = kcardScissorsBlockedPath;
     }
-    int number = Random().nextInt(3);
-    // while (number == 2) {
-    //   number = Random().nextInt(3);
-    // }
+  }
 
-    var computerMove = moves[number];
-
+  void gestureComputerImage(computerMove) {
     switch (computerMove) {
       case "pedra":
         imgComputer = "assets/images/handRock_right.png";
@@ -64,7 +76,9 @@ class Jokenpo {
       case "tesoura":
         imgComputer = "assets/images/handScissors_right.png";
     }
+  }
 
+  void checkWinner(userMove, computerMove) {
     if ((userMove == "pedra" && computerMove == "tesoura") ||
         (userMove == "tesoura" && computerMove == "papel") ||
         (userMove == "papel" && computerMove == "pedra")) {
