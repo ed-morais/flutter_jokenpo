@@ -32,14 +32,14 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: Rules.rules.entries
-                        .map((entry) => ListTile(
+                        .map((rule) => ListTile(
                               title: Text(
-                                'Regra ${entry.key}:',
+                                'Regra ${rule.key}:',
                                 style: kScoreDescriptionTextStyle.copyWith(
                                     color: Colors.black),
                               ),
                               subtitle: Text(
-                                entry.value,
+                                rule.value,
                                 style: kScoreDescriptionTextStyle.copyWith(
                                   fontSize: 12,
                                   color: Colors.black,
