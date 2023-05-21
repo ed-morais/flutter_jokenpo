@@ -20,16 +20,16 @@ class Jokenpo {
   String phrase = 'Escolha uma opção';
   List<String> moves = ["pedra", "papel", "tesoura"];
 
-  void repeatedMove() {
+  void _repeatedMove() {
     phrase = 'NÃO PODE REPETIR A JOGADA!';
   }
 
   void playGame(String userMove) {
     if (_currentMoveUser == userMove) {
-      repeatedMove();
+      _repeatedMove();
       return;
     }
-    gesturePlayerImage(userMove);
+    _gesturePlayerImage(userMove);
     _currentMoveUser = userMove;
 
     int number = Random().nextInt(3);
@@ -39,11 +39,11 @@ class Jokenpo {
     _currentComputerMove = number;
     var computerMove = moves[number];
 
-    gestureComputerImage(computerMove);
-    checkWinner(userMove, computerMove);
+    _gestureComputerImage(computerMove);
+    _checkWinner(userMove, computerMove);
   }
 
-  void gesturePlayerImage(userMove) {
+  void _gesturePlayerImage(userMove) {
     switch (userMove) {
       case "pedra":
         imgMoveUser = "assets/images/handRock_left.png";
@@ -65,7 +65,7 @@ class Jokenpo {
     }
   }
 
-  void gestureComputerImage(computerMove) {
+  void _gestureComputerImage(computerMove) {
     switch (computerMove) {
       case "pedra":
         imgComputer = "assets/images/handRock_right.png";
@@ -78,7 +78,7 @@ class Jokenpo {
     }
   }
 
-  void checkWinner(userMove, computerMove) {
+  void _checkWinner(userMove, computerMove) {
     if ((userMove == "pedra" && computerMove == "tesoura") ||
         (userMove == "tesoura" && computerMove == "papel") ||
         (userMove == "papel" && computerMove == "pedra")) {

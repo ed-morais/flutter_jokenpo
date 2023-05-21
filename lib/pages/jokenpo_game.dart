@@ -61,7 +61,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
@@ -69,7 +69,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
                   style: kPlayerLarge,
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
