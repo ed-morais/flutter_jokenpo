@@ -11,7 +11,7 @@ class ResetButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xff679480),
+        backgroundColor: const Color(0xff721d43),
         padding: const EdgeInsets.all(20),
       ),
       onPressed: () =>

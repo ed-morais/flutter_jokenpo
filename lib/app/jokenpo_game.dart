@@ -32,14 +32,14 @@ class _JokenpoGameState extends State<JokenpoGame> {
 
   void repeatedMove() {
     setState(() {
-      phrase = 'REPETIU A JOGADA! NÃO PODE';
+      phrase = 'NÃO PODE REPETIR A JOGADA!';
     });
   }
 
   void playGame(String userMove) {
     if (_currentMoveUser == userMove) {
       repeatedMove();
-      debugPrint('REPETIU A JOGADA! NÃO PODE');
+      debugPrint('NÃO PODE REPETIR A JOGADA!');
       return;
     }
     _currentMoveUser = userMove;
