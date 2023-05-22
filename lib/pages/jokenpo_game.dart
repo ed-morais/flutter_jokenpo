@@ -127,7 +127,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
                           setState(() {
                             AudioPlayer()
                                 .play(AssetSource('audio/cardsound.mp3'));
-                            game.playGame("pedra");
+                            game.playGame(Moves.rock);
                           });
                         },
                         topMargin: 20.0,
@@ -139,7 +139,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
                           setState(() {
                             AudioPlayer()
                                 .play(AssetSource('audio/cardsound.mp3'));
-                            game.playGame("tesoura");
+                            game.playGame(Moves.scissors);
                           });
                         },
                         topMargin: 0.0,
@@ -151,7 +151,7 @@ class _JokenpoGameState extends State<JokenpoGame> {
                           setState(() {
                             AudioPlayer()
                                 .play(AssetSource('audio/cardsound.mp3'));
-                            game.playGame("papel");
+                            game.playGame(Moves.paper);
                           });
                         },
                         topMargin: 20.0,

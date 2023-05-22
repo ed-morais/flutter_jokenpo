@@ -2,6 +2,12 @@ import 'dart:math';
 
 import './const.dart';
 
+enum Moves {
+  rock,
+  paper,
+  scissors,
+}
+
 class Jokenpo {
   String imgMoveUser = "assets/images/inicialHand_left.png";
   String imgComputer = "assets/images/inicialHand_right.png";
@@ -14,17 +20,16 @@ class Jokenpo {
   int computerScore = 00;
   int equalScore = 00;
 
-  String _currentMoveUser = '';
+  Moves? _currentMoveUser;
   int? _currentComputerMove;
 
   String phrase = 'Escolha uma opção';
-  List<String> moves = ["pedra", "papel", "tesoura"];
 
   void _repeatedMove() {
     phrase = 'NÃO PODE REPETIR A JOGADA!';
   }
 
-  void playGame(String userMove) {
+  void playGame(Moves userMove) {
     if (_currentMoveUser == userMove) {
       _repeatedMove();
       return;
@@ -37,27 +42,27 @@ class Jokenpo {
       number = Random().nextInt(3);
     }
     _currentComputerMove = number;
-    var computerMove = moves[number];
+    var computerMove = Moves.values[number];
 
     _gestureComputerImage(computerMove);
     _checkWinner(userMove, computerMove);
   }
 
-  void _gesturePlayerImage(userMove) {
+  void _gesturePlayerImage(Moves userMove) {
     switch (userMove) {
-      case "pedra":
+      case Moves.rock:
         imgMoveUser = "assets/images/handRock_left.png";
         cardRock = kcardRockBlockedPath;
         cardPaper = kcardPaperPath;
         cardScissors = kcardScissorsPath;
         break;
-      case "papel":
+      case Moves.paper:
         imgMoveUser = "assets/images/handPaper_left.png";
         cardRock = kcardRockPath;
         cardPaper = kcardPaperBlockedPath;
         cardScissors = kcardScissorsPath;
         break;
-      case "tesoura":
+      case Moves.scissors:
         imgMoveUser = "assets/images/handScissors_left.png";
         cardRock = kcardRockPath;
         cardPaper = kcardPaperPath;
@@ -65,28 +70,28 @@ class Jokenpo {
     }
   }
 
-  void _gestureComputerImage(computerMove) {
+  void _gestureComputerImage(Moves computerMove) {
     switch (computerMove) {
-      case "pedra":
+      case Moves.rock:
         imgComputer = "assets/images/handRock_right.png";
         break;
-      case "papel":
+      case Moves.paper:
         imgComputer = "assets/images/handPaper_right.png";
         break;
-      case "tesoura":
+      case Moves.scissors:
         imgComputer = "assets/images/handScissors_right.png";
     }
   }
 
-  void _checkWinner(userMove, computerMove) {
-    if ((userMove == "pedra" && computerMove == "tesoura") ||
-        (userMove == "tesoura" && computerMove == "papel") ||
-        (userMove == "papel" && computerMove == "pedra")) {
+  void _checkWinner(Moves userMove, Moves computerMove) {
+    if ((userMove == Moves.rock && computerMove == Moves.scissors) ||
+        (userMove == Moves.scissors && computerMove == Moves.paper) ||
+        (userMove == Moves.paper && computerMove == Moves.rock)) {
       phrase = "VOCÊ GANHOU";
       userScore += 1;
-    } else if ((userMove == "tesoura" && computerMove == "pedra") ||
-        (userMove == "papel" && computerMove == "tesoura") ||
-        (userMove == "pedra" && computerMove == "papel")) {
+    } else if ((userMove == Moves.scissors && computerMove == Moves.rock) ||
+        (userMove == Moves.paper && computerMove == Moves.scissors) ||
+        (userMove == Moves.rock && computerMove == Moves.paper)) {
       phrase = "VOCÊ PERDEU";
       computerScore += 1;
     } else {
