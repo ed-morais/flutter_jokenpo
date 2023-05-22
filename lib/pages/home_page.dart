@@ -1,100 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
-
 import '../config/config.dart';
 import '../config/rules.dart';
 import '../widgets/button.dart';
 import 'jokenpo_game.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final player = AudioPlayer();
-  @override
-  void initState() {
-    super.initState();
-    player.setReleaseMode(ReleaseMode.loop);
-    player.play(AssetSource('audio/audio_app.mp3'));
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Wrap(
-        direction: Axis.horizontal,
-        children: [
-          Container(
-            margin: const EdgeInsets.all(10),
-            child: FloatingActionButton(
-              backgroundColor: const Color(0xff721d43),
-              onPressed: () {
-                //action code for button 1
-              },
-              child: const Icon(Icons.music_note),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.all(10),
-            child: FloatingActionButton(
-              elevation: 10,
-              backgroundColor: const Color(0xff721d43),
-              child: const Icon(Icons.rule),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text(
-                        'REGRAS',
-                        textAlign: TextAlign.center,
-                        style: kScoreDescriptionTextStyle.copyWith(
-                          color: Colors.black,
-                          fontSize: 40,
-                        ),
-                      ),
-                      content: SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: Rules.rules.entries
-                              .map((rule) => ListTile(
-                                    title: Text(
-                                      'Regra ${rule.key}:',
-                                      style: kScoreDescriptionTextStyle
-                                          .copyWith(color: Colors.black),
-                                    ),
-                                    subtitle: Text(
-                                      rule.value,
-                                      style:
-                                          kScoreDescriptionTextStyle.copyWith(
-                                        fontSize: 12,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ))
-                              .toList(),
-                        ),
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          onPressed: () => Navigator.pop(context, 'OK'),
-                          child: const Text(
-                            'OK',
-                            style: TextStyle(color: Color(0xff721d43)),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
-          )
-        ],
+      floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        backgroundColor: const Color(0xff721d43),
+        child: const Icon(Icons.rule),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text(
+                  'REGRAS',
+                  textAlign: TextAlign.center,
+                  style: kScoreDescriptionTextStyle.copyWith(
+                    color: Colors.black,
+                    fontSize: 40,
+                  ),
+                ),
+                content: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: Rules.rules.entries
+                        .map((rule) => ListTile(
+                              title: Text(
+                                'Regra ${rule.key}:',
+                                style: kScoreDescriptionTextStyle.copyWith(
+                                    color: Colors.black),
+                              ),
+                              subtitle: Text(
+                                rule.value,
+                                style: kScoreDescriptionTextStyle.copyWith(
+                                  fontSize: 12,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, 'OK'),
+                    child: const Text(
+                      'OK',
+                      style: TextStyle(color: Color(0xff721d43)),
+                    ),
+                  ),
+                ],
+              );
+            },
+          );
+        },
       ),
       body: Stack(
         children: [
