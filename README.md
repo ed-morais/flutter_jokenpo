@@ -38,9 +38,9 @@ The developed application should adhere to the following requirements:
 
 ## Contributors
 
-- [Edilson Morais](https://github.com/ed-morais)
-- [Tiago Silva](https://github.com/TSCTiago)
-- [Francisco Mendes](https://github.com/FranciscoMends)
+- [Edilson Morais Brito](https://github.com/ed-morais)
+- [Tiago Silva Carvalho](https://github.com/TSCTiago)
+- [Francisco Mendes Magalhães Filho](https://github.com/FranciscoMends)
 
 
 ## Contributing
