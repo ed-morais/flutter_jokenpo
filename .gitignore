@@ -18,6 +18,7 @@ ios/
 macos/
 linux/
 windows/
+test/
 lib/generated_plugin_registrant.dart
 .metadata
 # For library packages, don’t commit the pubspec.lock file.
