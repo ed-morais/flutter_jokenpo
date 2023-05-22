@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 import '../config/config.dart';
 import '../config/rules.dart';
 import '../widgets/button.dart';
 import 'jokenpo_game.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final player = AudioPlayer();
+  @override
+  void initState() {
+    super.initState();
+    player.setReleaseMode(ReleaseMode.loop);
+    player.play(AssetSource('audio/audio_app.mp3'));
+  }
 
   @override
   Widget build(BuildContext context) {
