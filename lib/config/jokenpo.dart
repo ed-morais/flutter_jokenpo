@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import './const.dart';
+import 'config.dart';
 
 enum Moves {
   rock,

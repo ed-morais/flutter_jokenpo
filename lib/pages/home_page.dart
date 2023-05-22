@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/const.dart';
+import '../config/config.dart';
 import '../config/rules.dart';
 import '../widgets/button.dart';
 import 'jokenpo_game.dart';

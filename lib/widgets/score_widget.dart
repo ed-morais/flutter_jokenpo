@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/const.dart';
+import '../config/config.dart';
 
 class ScoreWidget extends StatelessWidget {
   final int score;

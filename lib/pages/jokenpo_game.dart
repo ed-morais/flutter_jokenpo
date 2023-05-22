@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-import '../config/const.dart';
+import '../config/config.dart';
 import '../config/jokenpo.dart';
 import '../widgets/button.dart';
+import '../widgets/legend_players.dart';
 import '../widgets/move_card.dart';
+import '../widgets/player_choices.dart';
 import '../widgets/score_widget.dart';
 
 class JokenpoGame extends StatefulWidget {
@@ -75,43 +77,27 @@ class _JokenpoGameState extends State<JokenpoGame> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Flexible(
-                      child: Image.asset(
-                        game.imgMoveUser,
-                        // width: 150.0,
-                      ),
+                    PlayersChoices(
+                      playerChoiceImage: game.imgMoveUser,
                     ),
-                    Flexible(
-                      child: Image.asset(
-                        game.imgComputer,
-                        // width: 150.0,
-                      ),
+                    PlayersChoices(
+                      playerChoiceImage: game.imgComputer,
                     ),
                   ],
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsetsDirectional.symmetric(horizontal: 30),
+                const Padding(
+                  padding: EdgeInsetsDirectional.symmetric(horizontal: 30),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'VOCÊ',
-                        style: kScoreDescriptionTextStyle.copyWith(
-                          fontSize: 25,
-                        ),
+                      LegendPlayer(
+                        text: 'você',
                       ),
-                      Text(
-                        'X',
-                        style: kScoreDescriptionTextStyle.copyWith(
-                          fontSize: 25,
-                        ),
+                      LegendPlayer(
+                        text: 'x',
                       ),
-                      Text(
-                        'ROBÔ',
-                        style: kScoreDescriptionTextStyle.copyWith(
-                          fontSize: 25,
-                        ),
+                      LegendPlayer(
+                        text: 'robô',
                       ),
                     ],
                   ),
