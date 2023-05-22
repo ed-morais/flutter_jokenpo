@@ -3,9 +3,9 @@
 A mobile application developed in Flutter that implements the game Jokenpo, also known as "Rock, Paper, Scissors".
 
 In Jokenpo, players must simultaneously make a hand gesture, each forming a symbol representing either rock, paper, or scissors. Then, the players compare the symbols to determine the winner according to the following rules:
-- Rock wins against scissors (crushing or breaking them).
-- Scissors win against paper (cutting it).
-- Paper wins against rock (wrapping it).
+- Rock wins against scissors.
+- Scissors win against paper.
+- Paper wins against rock.
 
 The rock is symbolized by a closed fist, scissors by two extended fingers, and paper by an open hand, as shown in the illustration.
 
