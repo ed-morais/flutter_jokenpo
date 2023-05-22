@@ -40,7 +40,7 @@ The developed application should adhere to the following requirements:
 
 - [Edilson Morais](https://github.com/ed-morais)
 - [Tiago Silva](https://github.com/TSCTiago)
-- [FranciscoMends](https://github.com/FranciscoMends)
+- [Francisco Mendes](https://github.com/FranciscoMends)
 
 
 ## Contributing
