@@ -1,5 +1,10 @@
-# Flutter Jokenpo
+## Contributors
 
+- [Edilson Morais Brito](https://github.com/ed-morais)
+- [Tiago Silva Carvalho](https://github.com/TSCTiago)
+- [Francisco Mendes Magalhães Filho](https://github.com/FranciscoMends)
+
+## Flutter Jokenpo
 
 A mobile application developed in Flutter that implements the game Jokenpo, also known as "Rock, Paper, Scissors" as part of the 1st evaluation for the course "Programming IV (mobile)" at Universidade Estadual do Piauí (UESPI), under the guidance of Professor Eyder Rios.
 
@@ -35,13 +40,6 @@ The developed application should adhere to the following requirements:
 
 1. Make sure you have Flutter set up on your local machine.
 2. Run the application: `flutter run`
-
-## Contributors
-
-- [Edilson Morais Brito](https://github.com/ed-morais)
-- [Tiago Silva Carvalho](https://github.com/TSCTiago)
-- [Francisco Mendes Magalhães Filho](https://github.com/FranciscoMends)
-
 
 ## Contributing
 
